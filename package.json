@@ -5,6 +5,7 @@
 	"author": {
 		"name": "stxr"
 	},
+	"icon": "images/logo.png",
 	"publisher": "stxr",
 	"version": "0.0.1",
 	"engines": {

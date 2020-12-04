@@ -3,5 +3,5 @@ a plugin which show ttf file for vscode.
 
 ### preview
 
-![image-20201203110950934](./image/image-20201203110950934.png)
+[![DqC7Af.png](https://s3.ax1x.com/2020/12/04/DqC7Af.png)](https://imgchr.com/i/DqC7Af)
 
