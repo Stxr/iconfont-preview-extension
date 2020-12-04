@@ -20,6 +20,10 @@
 	"activationEvents": [
 		"onCustomEditor:ttf.preview"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Stxr/iconfont-preview-extension"
+	},
 	"main": "./out/extension.js",
 	"contributes": {
 		"customEditors": [
