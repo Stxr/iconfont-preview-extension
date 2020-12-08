@@ -1,3 +1,8 @@
+## [0.0.3] - 2020-12-08
+### Added
+- support multiple editors per document
+- retain context when hidden
+
 # Change Log
 
 All notable changes to the "iconfont-preview" extension will be documented in this file.

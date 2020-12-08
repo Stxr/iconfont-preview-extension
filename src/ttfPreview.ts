@@ -6,7 +6,11 @@ export class TTFEditorProvider implements vscode.CustomReadonlyEditorProvider<TT
 
   static register(context: vscode.ExtensionContext): vscode.Disposable {
     return vscode.window.registerCustomEditorProvider("ttf.preview", new TTFEditorProvider(context), {
-      supportsMultipleEditorsPerDocument: false
+      supportsMultipleEditorsPerDocument: true,
+      webviewOptions:{
+        retainContextWhenHidden:true
+      }
+      
     })
   }
   constructor(
@@ -18,6 +22,7 @@ export class TTFEditorProvider implements vscode.CustomReadonlyEditorProvider<TT
   resolveCustomEditor(document: TTFDocument, webviewPanel: vscode.WebviewPanel, token: vscode.CancellationToken): void | Thenable<void> {
     webviewPanel.webview.options = {
       enableScripts: true,
+      
     };
     let buffer: Uint8Array
     const unicodeName = []
