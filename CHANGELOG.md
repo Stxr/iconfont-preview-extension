@@ -1,3 +1,9 @@
+## [0.0.4] - 2020-12-13
+### Added
+- Tips for successful copy
+### Changed
+- Hover style 
+
 ## [0.0.3] - 2020-12-08
 ### Added
 - support multiple editors per document

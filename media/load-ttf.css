@@ -40,10 +40,10 @@
   text-align: center;
 }
 .text-left:hover{
-  background-color: #ccc;
+  background-color: #666;
   border-radius: 0pt 0pt 0pt 6pt ;
 }
 .text-right:hover{
-  background-color: #ccc;
+  background-color: #666;
   border-radius: 0pt 0pt 6pt 0pt ;
 }

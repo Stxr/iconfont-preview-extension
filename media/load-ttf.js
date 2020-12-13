@@ -15,7 +15,7 @@ window.onload = () => {
   <div class="iconfont">${v}</div>
   <div style="display: flex;flex-direction: row;align-self:stretch;border-top: 1px solid #ccc;">
     <div onclick="copy(this)"  class="text text-left">${v.replace('&', '&#38')}</div>
-    <div onclick="copy(this)" class="text text-right">${v.replace('&#x', '\\u').replace(';','')}</div>
+    <div onclick="copy(this)" class="text text-right">${v.replace('&#x', '\\u').replace(';', '')}</div>
   </div>
   </div>`).join("\n")
   })
@@ -25,6 +25,16 @@ function copy(self) {
   const value = innerHTML.replace('&amp;', '&')
   console.log(value)
   copyToClipboard(value)
+  self.innerHTML = "copied!"
+  const cb = self.onclick
+  self.onclick=null
+  self.style="cursor: default;"
+
+  setTimeout(() => {
+    self.innerHTML = innerHTML
+    self.onclick = cb
+    self.style="cursor: pointer;"
+  }, 500);
 }
 
 
