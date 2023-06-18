@@ -35,6 +35,16 @@
   * The provided test runner will only consider files matching the name pattern `**.test.ts`.
   * You can create folders inside the `test` folder to structure your tests any way you want.
 
+## Publish your extension
+* Run `vsce package` to create a .vsix file (package) of your extension.
+```bash
+# install vsce
+npm install -g vsce
+# package extension
+vsce package
+```
+* Run `vsce publish` to publish your extension on the VSCode extension marketplace.
+
 ## Go further
 
  * Reduce the extension size and improve the startup time by [bundling your extension](https://code.visualstudio.com/api/working-with-extensions/testing-extension).

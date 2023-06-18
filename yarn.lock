@@ -56,10 +56,20 @@
   resolved "https://r.cnpmjs.org/@types/opentype.js/download/@types/opentype.js-1.3.1.tgz#e70c33bd3bb09b3ef22384179ccbbc479d499b7f"
   integrity sha1-5wwzvTuwmz7yI4QXnMu8R51Jm38=
 
+"@types/pako@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/pako/-/pako-2.0.0.tgz#12ab4c19107528452e73ac99132c875ccd43bdfb"
+  integrity sha512-10+iaz93qR5WYxTo+PMifD5TSxiOtdRaxBf7INGGXMQgTCu8Z/7GYWYFUOS3q/G0nE5boj1r4FEB+WSy7s5gbA==
+
 "@types/vscode@^1.51.0":
   version "1.51.0"
   resolved "https://registry.npm.taobao.org/@types/vscode/download/@types/vscode-1.51.0.tgz#f2e324d8385db95030b1454fd1f043618e08097d"
   integrity sha1-8uMk2DhduVAwsUVP0fBDYY4ICX0=
+
+"@xmldom/xmldom@^0.8.3":
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.8.tgz#d0d11511cbc1de77e53342ad1546a4d487d6ea72"
+  integrity sha512-0LNz4EY8B/8xXY86wMrQ4tz6zEHZv9ehFMJPm8u2gq5lQ71cfRKdaKyxfJAx5aUoyzx0qzgURblTisPGgz3d+Q==
 
 agent-base@4, agent-base@^4.3.0:
   version "4.3.0"
@@ -300,6 +310,13 @@ flat@^4.1.0:
   integrity sha1-o5IFnMOCiB/5hkL12k3eCpWfMJs=
   dependencies:
     is-buffer "~2.0.3"
+
+fonteditor-core@^2.1.11:
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/fonteditor-core/-/fonteditor-core-2.1.11.tgz#f31e5d48afb9f5ad9b2b12639b89bdef30561bb4"
+  integrity sha512-zgO5tHw5vzqYqkeb9jthIANbOOGwWqNWovINCMyIDLh9xmujsHPqloWJdk0PMbJHbZmiLG1F/kygfuWS8+TDfA==
+  dependencies:
+    "@xmldom/xmldom" "^0.8.3"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -620,14 +637,6 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
-opentype.js@^1.3.3:
-  version "1.3.3"
-  resolved "https://r.cnpmjs.org/opentype.js/download/opentype.js-1.3.3.tgz#65b8645b090a1ad444065b784d442fa19d1061f6"
-  integrity sha1-ZbhkWwkKGtREBlt4TUQvoZ0QYfY=
-  dependencies:
-    string.prototype.codepointat "^0.2.1"
-    tiny-inflate "^1.0.3"
-
 p-limit@^2.0.0:
   version "2.3.0"
   resolved "https://registry.npm.taobao.org/p-limit/download/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
@@ -646,6 +655,11 @@ p-try@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npm.taobao.org/p-try/download/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha1-yyhoVA4xPWHeWPr741zpAE1VQOY=
+
+pako@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-2.1.0.tgz#266cc37f98c7d883545d11335c00fbd4062c9a86"
+  integrity sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==
 
 path-exists@^3.0.0:
   version "3.0.0"
@@ -719,11 +733,6 @@ string-width@^3.0.0, string-width@^3.1.0:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^5.1.0"
 
-string.prototype.codepointat@^0.2.1:
-  version "0.2.1"
-  resolved "https://r.cnpmjs.org/string.prototype.codepointat/download/string.prototype.codepointat-0.2.1.tgz#004ad44c8afc727527b108cd462b4d971cd469bc"
-  integrity sha1-AErUTIr8cnUnsQjNRitNlxzUabw=
-
 string.prototype.trimend@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/string.prototype.trimend/download/string.prototype.trimend-1.0.2.tgz#6ddd9a8796bc714b489a3ae22246a208f37bfa46"
@@ -772,11 +781,6 @@ supports-color@^5.3.0:
   integrity sha1-4uaaRKyHcveKHsCzW2id9lMO/I8=
   dependencies:
     has-flag "^3.0.0"
-
-tiny-inflate@^1.0.3:
-  version "1.0.3"
-  resolved "https://r.cnpmjs.org/tiny-inflate/download/tiny-inflate-1.0.3.tgz#122715494913a1805166aaf7c93467933eea26c4"
-  integrity sha1-EicVSUkToYBRZqr3yTRnkz7qJsQ=
 
 tslib@^1.8.0, tslib@^1.8.1:
   version "1.14.1"

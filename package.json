@@ -7,7 +7,7 @@
 	},
 	"icon": "images/logo.png",
 	"publisher": "stxr",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
@@ -16,7 +16,11 @@
 	],
 	"keywords": [
 		"ttf",
-		"iconfont"
+		"iconfont",
+		"otf",
+		"woff",
+		"woff2",
+		"eot"
 	],
 	"activationEvents": [
 		"onCustomEditor:ttf.preview"
@@ -34,6 +38,18 @@
 				"selector": [
 					{
 						"filenamePattern": "*.ttf"
+					},
+					{
+						"filenamePattern": "*.otf"
+					},
+					{
+						"filenamePattern": "*.woff"
+					},
+					{
+						"filenamePattern": "*.woff2"
+					},
+					{
+						"filenamePattern": "*.eot"
 					}
 				]
 			}
@@ -47,10 +63,11 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/opentype.js": "^1.3.1",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.6",
 		"@types/node": "^10.12.21",
+		"@types/opentype.js": "^1.3.1",
+		"@types/pako": "^2.0.0",
 		"@types/vscode": "^1.51.0",
 		"glob": "^7.1.4",
 		"mocha": "^6.1.4",
@@ -59,6 +76,7 @@
 		"vscode-test": "^1.0.2"
 	},
 	"dependencies": {
-		"opentype.js": "^1.3.3"
+		"fonteditor-core": "^2.1.11",
+		"pako": "^2.1.0"
 	}
 }

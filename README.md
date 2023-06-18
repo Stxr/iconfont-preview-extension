@@ -1,5 +1,5 @@
 ### iconfont-preview
-a plugin which show ttf file for vscode.
+a plugin which show ttf,eot,otf,woff,woff2 file content for vscode.
 
 ### preview
 
