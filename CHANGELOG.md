@@ -1,3 +1,7 @@
+## [0.0.5] - 2023-06-18
+### Added
+- Support for eot, opt, woff and woff2
+
 ## [0.0.4] - 2020-12-13
 ### Added
 - Tips for successful copy
