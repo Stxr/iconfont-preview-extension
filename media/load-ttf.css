@@ -1,3 +1,51 @@
+/* Search container styles */
+.search-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--vscode-editor-background, #1e1e1e);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--vscode-panel-border, #ccc);
+}
+
+.search-input {
+  flex: 1;
+  max-width: 400px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid var(--vscode-input-border, #ccc);
+  border-radius: 4px;
+  background-color: var(--vscode-input-background, #fff);
+  color: var(--vscode-input-foreground, #000);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--vscode-focusBorder, #007acc);
+}
+
+.search-input::placeholder {
+  color: var(--vscode-input-placeholderForeground, #999);
+}
+
+.search-count {
+  font-size: 12px;
+  color: var(--vscode-descriptionForeground, #666);
+  white-space: nowrap;
+}
+
+.no-results {
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--vscode-descriptionForeground, #666);
+  font-size: 14px;
+}
+
 .iconfont {
   font-family: iconfont-preview !important;
   font-size: 30px;
