@@ -71,7 +71,7 @@ export class TTFEditorProvider implements vscode.CustomReadonlyEditorProvider<TT
     return `
     <!DOCTYPE html>
     <html lang="en">
-    
+
     <head>
       <meta charset="UTF-8">
       <meta http-equiv="Content-Security-Policy" content="font-src 'self' 'unsafe-inline' data:; style-src ${webview.cspSource} 'unsafe-inline'; img-src ${webview.cspSource} https:; script-src  ${webview.cspSource} 'unsafe-inline';">
@@ -79,11 +79,27 @@ export class TTFEditorProvider implements vscode.CustomReadonlyEditorProvider<TT
       <title>Document</title>
       <script src="${scriptUri}" type='text/javascript'></script>
     </head>
-    
+
     <body>
       <link href="${cssUri}" rel="stylesheet" type="text/css" />
+
+      <!-- Text Preview Section (Issue #1) -->
+      <div class="preview-section">
+        <div class="preview-header">Sample Text Preview</div>
+        <input type="text" class="preview-input" placeholder="Type to preview font..." oninput="updatePreviewText()" value="The quick brown fox jumps over the lazy dog. 0123456789" />
+        <div class="preview-display">The quick brown fox jumps over the lazy dog. 0123456789</div>
+      </div>
+
+      <!-- Search Section (Issue #6) -->
+      <div class="search-section">
+        <input type="text" class="search-input" placeholder="Search glyphs by name or unicode..." oninput="handleSearch(event)" />
+        <span class="search-icon">&#128269;</span>
+      </div>
+
       <div style="display: flex; justify-content: center;">
-        <div class="content"></div>
+        <div class="content">
+          <div class="glyph-content"></div>
+        </div>
       </div>
       <style>
         @font-face {
@@ -92,29 +108,111 @@ export class TTFEditorProvider implements vscode.CustomReadonlyEditorProvider<TT
         }
       </style>
     </body>
-    
+
     </html>`
   }
   getErrorHtmlForWebView(webview: vscode.Webview, errorMsg: String) {
+    // Provide helpful suggestions based on common error messages
+    let suggestion = ''
+    const errorLower = errorMsg.toLowerCase()
+    if (errorLower.includes('offset') || errorLower.includes('dataview') || errorLower.includes('bounds')) {
+      suggestion = `
+        <div class="suggestion">
+          <strong>Possible causes:</strong>
+          <ul>
+            <li>The font file may be corrupted or incomplete</li>
+            <li>The file format may not be fully supported</li>
+            <li>Try re-downloading the font file from the original source</li>
+          </ul>
+        </div>`
+    } else if (errorLower.includes('invalid') || errorLower.includes('parse')) {
+      suggestion = `
+        <div class="suggestion">
+          <strong>Possible causes:</strong>
+          <ul>
+            <li>The file may not be a valid font file</li>
+            <li>The font format may be unsupported or malformed</li>
+            <li>Supported formats: TTF, OTF, WOFF, WOFF2, EOT</li>
+          </ul>
+        </div>`
+    }
+
     return `
     <!DOCTYPE html>
     <html lang="en">
-    
+
     <head>
       <meta charset="UTF-8">
       <meta http-equiv="Content-Security-Policy" content="font-src 'self' 'unsafe-inline' data:; style-src ${webview.cspSource} 'unsafe-inline'; img-src ${webview.cspSource} https:; script-src  ${webview.cspSource} 'unsafe-inline';">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
+      <title>Font Preview Error</title>
+      <style>
+        body {
+          font-family: var(--vscode-font-family, -apple-system, BlinkMacSystemFont, sans-serif);
+          padding: 20px;
+          color: var(--vscode-foreground, #ccc);
+        }
+        .error-container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid var(--vscode-editorError-foreground, #f44);
+          border-radius: 8px;
+          background-color: var(--vscode-editor-background, #1e1e1e);
+        }
+        .error-title {
+          color: var(--vscode-editorError-foreground, #f44);
+          font-size: 18px;
+          margin-bottom: 16px;
+        }
+        .error-message {
+          background-color: var(--vscode-textCodeBlock-background, #2d2d2d);
+          padding: 12px;
+          border-radius: 4px;
+          margin: 12px 0;
+          font-family: monospace;
+          word-break: break-word;
+        }
+        .suggestion {
+          margin: 16px 0;
+          padding: 12px;
+          background-color: var(--vscode-textBlockQuote-background, #2a2a2a);
+          border-left: 3px solid var(--vscode-textLink-foreground, #3794ff);
+          border-radius: 0 4px 4px 0;
+        }
+        .suggestion ul {
+          margin: 8px 0 0 0;
+          padding-left: 20px;
+        }
+        .suggestion li {
+          margin: 4px 0;
+        }
+        a {
+          color: var(--vscode-textLink-foreground, #3794ff);
+        }
+        .help-text {
+          margin-top: 16px;
+          font-size: 14px;
+        }
+      </style>
     </head>
 
     <body>
-      <div style="">
-        <div class="content">There are some errors with the plugin <a href="https://marketplace.visualstudio.com/items?itemName=stxr.iconfont-preview">iconfont-preview.</a></div>
-        <div class="content">error message:<span style="font-weight:bold;">${errorMsg}</span>. </div>
-        <div class="content">please check your font file or open an issue on github,Thank you🙏🙏🙏.</div>
-        <div class="content">github: <a href="https://github.com/Stxr/iconfont-preview-extension/issues">https://github.com/Stxr/iconfont-preview-extension</a></div>
+      <div class="error-container">
+        <div class="error-title">Unable to Preview Font File</div>
+        <div class="error-message">${errorMsg}</div>
+        ${suggestion}
+        <div class="help-text">
+          <p>If this issue persists, please:</p>
+          <ul>
+            <li>Check that the font file is not corrupted</li>
+            <li>Try opening with a different font viewer to verify the file</li>
+            <li>Report the issue on <a href="https://github.com/Stxr/iconfont-preview-extension/issues">GitHub</a> with details about the font file</li>
+          </ul>
+        </div>
       </div>
-    `
+    </body>
+    </html>`
   }
   nodeBufferToArrayBuffer(buffer: Uint8Array) {
     var view = new Uint8Array(buffer.length);

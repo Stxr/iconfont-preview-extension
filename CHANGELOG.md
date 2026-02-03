@@ -1,3 +1,11 @@
+## [0.0.6] - 2026-02-03
+### Added
+- Search functionality for glyph names and unicode values (Issue #6)
+- Sample text preview section with customizable text (Issue #1)
+### Improved
+- Enhanced error handling with helpful suggestions for common issues (Issue #9)
+- Updated TypeScript to version 4.9 for better compatibility
+
 ## [0.0.5] - 2023-06-18
 ### Added
 - Support for eot, opt, woff and woff2
