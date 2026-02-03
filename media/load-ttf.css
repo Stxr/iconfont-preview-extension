@@ -1,3 +1,76 @@
+/* Sample Text Preview Section (Issue #1) */
+.preview-section {
+  padding: 16px 20px;
+  margin: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: var(--vscode-editor-background, #1e1e1e);
+}
+
+.preview-header {
+  font-size: 12px;
+  color: var(--vscode-descriptionForeground, #888);
+  margin-bottom: 8px;
+}
+
+.preview-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: var(--vscode-input-background, #3c3c3c);
+  color: var(--vscode-input-foreground, #fff);
+  font-size: 14px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.preview-input:focus {
+  outline: none;
+  border-color: var(--vscode-focusBorder, #007acc);
+}
+
+.preview-display {
+  font-family: iconfont-preview !important;
+  font-size: 32px;
+  padding: 16px;
+  min-height: 50px;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* Search Section (Issue #6) */
+.search-section {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 20px;
+  background-color: var(--vscode-editor-background, #1e1e1e);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  max-width: 400px;
+  padding: 8px 12px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: var(--vscode-input-background, #3c3c3c);
+  color: var(--vscode-input-foreground, #fff);
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--vscode-focusBorder, #007acc);
+}
+
+.search-icon {
+  font-size: 16px;
+}
+
 .iconfont {
   font-family: iconfont-preview !important;
   font-size: 30px;
@@ -15,7 +88,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
-  /* justify-content: space-around; */
+}
+
+.glyph-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .item-content {
